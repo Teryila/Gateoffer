@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Gateway</title>
+    <style>
+        body {
+            background-color: #FFFFE0; /* Light yellow background */
+            font-family: Arial, sans-serif;
+        }
+
+        .frame {
+            margin: 50px auto;
+            padding: 20px;
+            width: 400px;
+            background-color: #FFFFFF; /* White background for the frame */
+            border: 2px solid #FFA500; /* Orange border for the frame */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333; /* Dark gray text */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333333;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #CCCCCC; /* Light gray border */
+            border-radius: 5px; /* Rounded corners for inputs */
+            box-sizing: border-box;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-details input {
+            width: 48%;
+        }
+
+        button {
+            background-color: #FFA500; /* Orange background for the button */
+            color: #FFFFFF; /* White text for the button */
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FF8C00; /* Darker orange on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <h1>Payment Gateway</h1>
+        <form id="payment-form">
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" name="amount" required>
+
+            <label for="currency">Currency:</label>
+            <select id="currency" name="currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="NGN">NGN</option>
+                <!-- Add more currencies as needed -->
+            </select>
+
+            <label for="bank">Bank:</label>
+            <select id="bank" name="bank">
+                <option value="UBA">UBA (United Bank of Africa)</option>
+                <option value="UnionBank">Union Bank</option>
+                <option value="FirstBank">First Bank of Nigeria</option>
+                <option value="GTBank">GTBank</option>
+                <option value="AccessBank">Access Bank</option>
+                <option value="ZenithBank">Zenith Bank</option>
+                <option value="FidelityBank">Fidelity Bank</option>
+                <!-- Add more banks as needed -->
+            </select>
+
+            <label for="receiver_account">Receiver Account:</label>
+            <input type="text" id="receiver_account" name="receiver_account" required>
+
+            <label for="card_number">Card Number:</label>
+            <input type="text" id="card_number" name="card_number" required>
+
+            <div class="card-details">
+                <div>
+                    <label for="exp_date">Expiration Date:</label>
+                    <input type="text" id="exp_date" name="exp_date" placeholder="MM/YY" required>
+                </div>
+                <div>
+                    <label for="cvc">CVC:</label>
+                    <input type="text" id="cvc" name="cvc" required>
+                </div>
+            </div>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
